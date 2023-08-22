@@ -19,29 +19,23 @@ export class SignInComponent {
     ){
       this.form= this.formBuilder.group({
         userLogin: [""],
-        userPassw: [""],
-        userEmail: [""],
-        userName: [""]
+        userPassw: [""]
       });
     }
+
   userLogin!: string;
-  userPassw!: string; 
-  userEmail!:string;
-  userInfo: any
+  userPassw!: string;
+  userEmail!: string;
   userName!: string;
 
-  data!:string
-  onSubmit() {
-    const url ='https://api.nancydrew.me/addUser?key=X9ZO2Lqf&login='+this.userLogin +'&password='+this.userPassw+'&name='+this.userName+'&email='+this.userEmail
-    this.httpClient.get(url).subscribe((data:any)=>{
-      this.userLogin = data
-      this.userPassw = data
-      this.userName = data
-      this.userEmail = data
-    })
-  }
+  info!: object;
+  data !: string;
+  
+  //private url = 'https://api.nancydrew.me/authUser?key=X9ZO2Lqf&login='+this.userLogin +'&password='+this.userPassw
 
-  goForm() {
-    this.router.navigate(['/signIn']);
+  onSubmit() {
+    this.httpClient.get('https://api.nancydrew.me/authUser?key=X9ZO2Lqf&login='+this.userLogin +'&password='+this.userPassw).subscribe(
+      (responce)=> this.data = JSON.stringify(responce)
+    )
   }
 }

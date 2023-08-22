@@ -1,1 +1,13 @@
-<p>sign-in works!</p>
+<div class="container">
+    <h1>Sign in page</h1>
+
+    <div class="block">
+        <form method="get" (ngSubmit)="onSubmit()">
+            <input [(ngModel)]="userLogin" name="userLog" type="text" placeholder="Login">
+            <input [(ngModel)]="userPassw" name="userPass" type="password" placeholder="Password">
+            <br>
+            <button type="submit">Sign in</button>
+        </form>
+    </div>
+    <p *ngIf="(this.data !=null)">{{this.data}}</p>
+</div>
