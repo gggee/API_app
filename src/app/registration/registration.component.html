@@ -1,0 +1,12 @@
+<div class="container">
+    <h1>Registration page</h1>
+
+    <form class="block" (submit)="onSubmit()" method="get">
+        <input [(ngModel)]="userLogin" name="userLog" type="text" placeholder="Login">
+        <input [(ngModel)]="userPassw" name="userPass" type="password" placeholder="Password">
+        <input [(ngModel)]="userEmail" name="userEmal" type="email" placeholder="Enter email">
+        <input [(ngModel)]="userName" name="userNam" type="name" placeholder="Enter name">
+        <button (click)="goForm()" type="submit">Зарегистрироваться</button>
+    </form> 
+
+</div>
